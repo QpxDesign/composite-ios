@@ -8,6 +8,15 @@
         "revision" : "af4be924ad984cf4d16f4ae4df424e79a443d435",
         "version" : "7.6.2"
       }
+    },
+    {
+      "identity" : "swiftuicharts",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/QpxDesign/SwiftUICharts",
+      "state" : {
+        "branch" : "develop",
+        "revision" : "d15ab7d302729d6b4dd110b372a01686e67c495e"
+      }
     }
   ],
   "version" : 2

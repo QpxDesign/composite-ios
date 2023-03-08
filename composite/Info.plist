@@ -8,5 +8,7 @@
 		<string>SourceSerifPro-Regular.ttf</string>
 		<string>SourceSerifPro-Regular.tff</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

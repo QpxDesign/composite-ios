@@ -20,9 +20,16 @@
 		824A001429B6B7AF00E02F75 /* unsplash_urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A001329B6B7AF00E02F75 /* unsplash_urls.swift */; };
 		824A001629B6B7DB00E02F75 /* unsplash_user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A001529B6B7DB00E02F75 /* unsplash_user.swift */; };
 		824A001829B6B83300E02F75 /* unsplash_api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A001729B6B83300E02F75 /* unsplash_api.swift */; };
-		824A001A29B6BC0900E02F75 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A001929B6BC0900E02F75 /* ImageView.swift */; };
 		824A001D29B6BFA000E02F75 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 824A001C29B6BFA000E02F75 /* Kingfisher */; };
 		824A001F29B6CC3600E02F75 /* FullStateNameFromAbbreviation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A001E29B6CC3600E02F75 /* FullStateNameFromAbbreviation.swift */; };
+		824A002429B7E4E100E02F75 /* AddCommasToNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A002329B7E4E100E02F75 /* AddCommasToNumber.swift */; };
+		824A003429B7F96300E02F75 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 824A003329B7F96300E02F75 /* SwiftUICharts */; };
+		824A003929B8009D00E02F75 /* weather-stations.json in Resources */ = {isa = PBXBuildFile; fileRef = 824A003829B8009D00E02F75 /* weather-stations.json */; };
+		824A003F29B8010F00E02F75 /* weather_station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A003E29B8010F00E02F75 /* weather_station.swift */; };
+		824A004129B8015000E02F75 /* getClosestWeatherStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A004029B8015000E02F75 /* getClosestWeatherStation.swift */; };
+		824A004329B802E000E02F75 /* MonthWeatherNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A004229B802E000E02F75 /* MonthWeatherNormal.swift */; };
+		824A004629B805F400E02F75 /* Climate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A004529B805F400E02F75 /* Climate.swift */; };
+		824A004829B813BA00E02F75 /* DateNumberToMonthName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A004729B813BA00E02F75 /* DateNumberToMonthName.swift */; };
 		824AFF8D29B68F6E00E02F75 /* compositeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824AFF8C29B68F6E00E02F75 /* compositeApp.swift */; };
 		824AFF8F29B68F6E00E02F75 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824AFF8E29B68F6E00E02F75 /* ContentView.swift */; };
 		824AFF9129B68F6F00E02F75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 824AFF9029B68F6F00E02F75 /* Assets.xcassets */; };
@@ -86,8 +93,15 @@
 		824A001329B6B7AF00E02F75 /* unsplash_urls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unsplash_urls.swift; sourceTree = "<group>"; };
 		824A001529B6B7DB00E02F75 /* unsplash_user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unsplash_user.swift; sourceTree = "<group>"; };
 		824A001729B6B83300E02F75 /* unsplash_api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unsplash_api.swift; sourceTree = "<group>"; };
-		824A001929B6BC0900E02F75 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		824A001E29B6CC3600E02F75 /* FullStateNameFromAbbreviation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullStateNameFromAbbreviation.swift; sourceTree = "<group>"; };
+		824A002329B7E4E100E02F75 /* AddCommasToNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommasToNumber.swift; sourceTree = "<group>"; };
+		824A003529B7FAAB00E02F75 /* composite.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = composite.entitlements; sourceTree = "<group>"; };
+		824A003829B8009D00E02F75 /* weather-stations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "weather-stations.json"; sourceTree = "<group>"; };
+		824A003E29B8010F00E02F75 /* weather_station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weather_station.swift; sourceTree = "<group>"; };
+		824A004029B8015000E02F75 /* getClosestWeatherStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getClosestWeatherStation.swift; sourceTree = "<group>"; };
+		824A004229B802E000E02F75 /* MonthWeatherNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthWeatherNormal.swift; sourceTree = "<group>"; };
+		824A004529B805F400E02F75 /* Climate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Climate.swift; sourceTree = "<group>"; };
+		824A004729B813BA00E02F75 /* DateNumberToMonthName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateNumberToMonthName.swift; sourceTree = "<group>"; };
 		824AFF8929B68F6E00E02F75 /* composite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = composite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		824AFF8C29B68F6E00E02F75 /* compositeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = compositeApp.swift; sourceTree = "<group>"; };
 		824AFF8E29B68F6E00E02F75 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -142,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				824A001D29B6BFA000E02F75 /* Kingfisher in Frameworks */,
+				824A003429B7F96300E02F75 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +207,25 @@
 			path = ed.gov;
 			sourceTree = "<group>";
 		};
+		824A003B29B800C100E02F75 /* unsplash */ = {
+			isa = PBXGroup;
+			children = (
+				824A001329B6B7AF00E02F75 /* unsplash_urls.swift */,
+				824A001129B6B74F00E02F75 /* unsplash_results.swift */,
+				824A001529B6B7DB00E02F75 /* unsplash_user.swift */,
+				824A001729B6B83300E02F75 /* unsplash_api.swift */,
+			);
+			path = unsplash;
+			sourceTree = "<group>";
+		};
+		824A004429B805E900E02F75 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				824A004529B805F400E02F75 /* Climate.swift */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
 		824AFF8029B68F6E00E02F75 = {
 			isa = PBXGroup;
 			children = (
@@ -215,7 +249,9 @@
 		824AFF8B29B68F6E00E02F75 /* composite */ = {
 			isa = PBXGroup;
 			children = (
+				824A003529B7FAAB00E02F75 /* composite.entitlements */,
 				824AFFF929B69E1200E02F75 /* Info.plist */,
+				824A003829B8009D00E02F75 /* weather-stations.json */,
 				824AFF8C29B68F6E00E02F75 /* compositeApp.swift */,
 				824AFF8E29B68F6E00E02F75 /* ContentView.swift */,
 				824A000829B6AEB200E02F75 /* us_institutions.json */,
@@ -257,11 +293,10 @@
 		824AFFE529B69D0C00E02F75 /* structs */ = {
 			isa = PBXGroup;
 			children = (
+				824A003B29B800C100E02F75 /* unsplash */,
 				824A001029B6B72B00E02F75 /* ed.gov */,
-				824A001129B6B74F00E02F75 /* unsplash_results.swift */,
-				824A001529B6B7DB00E02F75 /* unsplash_user.swift */,
-				824A001729B6B83300E02F75 /* unsplash_api.swift */,
-				824A001329B6B7AF00E02F75 /* unsplash_urls.swift */,
+				824A003E29B8010F00E02F75 /* weather_station.swift */,
+				824A004229B802E000E02F75 /* MonthWeatherNormal.swift */,
 			);
 			path = structs;
 			sourceTree = "<group>";
@@ -271,7 +306,9 @@
 			children = (
 				824AFFB629B68F7B00E02F75 /* apiCall.swift */,
 				824A001E29B6CC3600E02F75 /* FullStateNameFromAbbreviation.swift */,
-				824A001929B6BC0900E02F75 /* ImageView.swift */,
+				824A004029B8015000E02F75 /* getClosestWeatherStation.swift */,
+				824A002329B7E4E100E02F75 /* AddCommasToNumber.swift */,
+				824A004729B813BA00E02F75 /* DateNumberToMonthName.swift */,
 				824A000A29B6AED500E02F75 /* getMatchingSchoolNames.swift */,
 				824A000629B6AD4D00E02F75 /* CustomColors.swift */,
 			);
@@ -281,6 +318,7 @@
 		824AFFE729B69D3300E02F75 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				824A004429B805E900E02F75 /* Widgets */,
 				824AFFEA29B69D5400E02F75 /* SearchCollegesView.swift */,
 				824A000E29B6B4C400E02F75 /* CollegeDetailedView.swift */,
 			);
@@ -324,6 +362,7 @@
 			name = composite;
 			packageProductDependencies = (
 				824A001C29B6BFA000E02F75 /* Kingfisher */,
+				824A003329B7F96300E02F75 /* SwiftUICharts */,
 			);
 			productName = composite;
 			productReference = 824AFF8929B68F6E00E02F75 /* composite.app */;
@@ -399,6 +438,7 @@
 			mainGroup = 824AFF8029B68F6E00E02F75;
 			packageReferences = (
 				824A001B29B6BFA000E02F75 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				824A003229B7F96300E02F75 /* XCRemoteSwiftPackageReference "SwiftUICharts" */,
 			);
 			productRefGroup = 824AFF8A29B68F6E00E02F75 /* Products */;
 			projectDirPath = "";
@@ -417,6 +457,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				824A000929B6AEB200E02F75 /* us_institutions.json in Resources */,
+				824A003929B8009D00E02F75 /* weather-stations.json in Resources */,
 				824AFFFB29B6A17900E02F75 /* SourceSerifPro-Black.ttf in Resources */,
 				824AFF9429B68F6F00E02F75 /* Preview Assets.xcassets in Resources */,
 				824AFF9129B68F6F00E02F75 /* Assets.xcassets in Resources */,
@@ -454,8 +495,8 @@
 				824AFFCD29B6943600E02F75 /* avg_net_price.swift in Sources */,
 				824AFFCB29B693D700E02F75 /* cost.swift in Sources */,
 				824AFFE129B699C400E02F75 /* APICallResult.swift in Sources */,
-				824A001A29B6BC0900E02F75 /* ImageView.swift in Sources */,
 				824AFFD529B6955F00E02F75 /* admissions.swift in Sources */,
+				824A002429B7E4E100E02F75 /* AddCommasToNumber.swift in Sources */,
 				824AFFCF29B6946500E02F75 /* roomboard.swift in Sources */,
 				824AFFB929B68FD100E02F75 /* CollegeResult.swift in Sources */,
 				824A001F29B6CC3600E02F75 /* FullStateNameFromAbbreviation.swift in Sources */,
@@ -467,10 +508,12 @@
 				824AFFDB29B695E000E02F75 /* midpointACT.swift in Sources */,
 				824AFFD929B695C000E02F75 /* midpointSAT.swift in Sources */,
 				824AFFE329B69A2300E02F75 /* metadata.swift in Sources */,
+				824A004329B802E000E02F75 /* MonthWeatherNormal.swift in Sources */,
 				824A000D29B6AEFE00E02F75 /* institution.swift in Sources */,
 				824AFFD729B6959900E02F75 /* sat_scores.swift in Sources */,
 				824AFFC129B6919500E02F75 /* location.swift in Sources */,
 				824AFF8F29B68F6E00E02F75 /* ContentView.swift in Sources */,
+				824A004629B805F400E02F75 /* Climate.swift in Sources */,
 				824AFF8D29B68F6E00E02F75 /* compositeApp.swift in Sources */,
 				824AFFDF29B6964200E02F75 /* admission_rate.swift in Sources */,
 				824A000B29B6AED500E02F75 /* getMatchingSchoolNames.swift in Sources */,
@@ -479,7 +522,10 @@
 				824AFFC929B6935B00E02F75 /* race_ethnicity.swift in Sources */,
 				824AFFBD29B6901E00E02F75 /* school.swift in Sources */,
 				824AFFC729B6932900E02F75 /* demographics.swift in Sources */,
+				824A004829B813BA00E02F75 /* DateNumberToMonthName.swift in Sources */,
+				824A004129B8015000E02F75 /* getClosestWeatherStation.swift in Sources */,
 				824AFFC529B692CC00E02F75 /* enrollment.swift in Sources */,
+				824A003F29B8010F00E02F75 /* weather_station.swift in Sources */,
 				824AFFBF29B690EF00E02F75 /* endowment.swift in Sources */,
 				824A001829B6B83300E02F75 /* unsplash_api.swift in Sources */,
 				824A001629B6B7DB00E02F75 /* unsplash_user.swift in Sources */,
@@ -640,15 +686,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = composite/composite.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"composite/Preview Content\"";
+				DEVELOPMENT_TEAM = HJCD65FY5D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = composite/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -669,15 +718,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = composite/composite.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"composite/Preview Content\"";
+				DEVELOPMENT_TEAM = HJCD65FY5D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = composite/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -815,6 +867,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		824A003229B7F96300E02F75 /* XCRemoteSwiftPackageReference "SwiftUICharts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/QpxDesign/SwiftUICharts";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -822,6 +882,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 824A001B29B6BFA000E02F75 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		824A003329B7F96300E02F75 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 824A003229B7F96300E02F75 /* XCRemoteSwiftPackageReference "SwiftUICharts" */;
+			productName = SwiftUICharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
