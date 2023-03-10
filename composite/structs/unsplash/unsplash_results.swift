@@ -11,7 +11,7 @@ struct unsplash_results :  Codable, Identifiable {
     let id = UUID()
     let alt_description : String?
     let urls : unsplash_urls?
-    let unsplash_user : unsplash_user?
+    let user : unsplash_user?
     
 }
 

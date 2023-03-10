@@ -31,10 +31,12 @@ struct school :  Codable, Identifiable {
     let faculty_salary: Int?
     let ownership_peps: Int?
     let accreditor_code: String?
-    let ft_faculty_rate: Double
+    let ft_faculty_rate: Double?
     let carnegie_undergrad: Int?
     let degree_urbanization: Int?
     let under_investigation: Int?
     let price_calculator_url: String?
     let carnegie_size_setting: Int?
+    func hash(into hasher: inout Hasher) {
+    }
 }

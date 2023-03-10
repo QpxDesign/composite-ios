@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CollegeResult :  Codable, Identifiable {
+struct CollegeResult :  Codable, Identifiable{
     let id = UUID()
     let latest : latest?
     let location : location?

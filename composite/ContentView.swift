@@ -13,6 +13,7 @@ struct ContentView: View {
         UITabBar.appearance().backgroundColor = UIColor(CustomColors.Gray900)
         UITabBar.appearance().unselectedItemTintColor = UIColor.white
     }
+    @State var userLoggedIn : Bool = false
     var body: some View {
         NavigationView {
             TabView {
@@ -20,6 +21,15 @@ struct ContentView: View {
                     .tabItem {
                         Label("Search", systemImage: "magnifyingglass")
                     }
+                LikedCollegesView()
+                    .tabItem {
+                        Label("Favorites", systemImage: "heart.fill")
+                    }
+                ProfileView(userLoggedIn: $userLoggedIn)
+                    .tabItem {
+                        Label("Favorites", systemImage: "person.circle.fill")
+                    }
+                
             }
         
         

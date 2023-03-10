@@ -8,7 +8,7 @@
 import Foundation
 struct location :  Codable, Identifiable {
     let id = UUID()
-    let lat: Double
-    let lon : Double
+    let lat: Double?
+    let lon : Double?
 }
 

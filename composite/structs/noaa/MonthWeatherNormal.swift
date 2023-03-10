@@ -14,6 +14,7 @@ struct MonthWeatherNormal  :  Codable, Identifiable {
     let STATION: String?
     let MLY_PRCP_NORMAL: String?
     let MLY_TMAX_NORMAL: String?
+    let MLY_SNOW_NORMAL : String?
     
     enum CodingKeys : String, CodingKey {
         case id = "id"
@@ -23,6 +24,7 @@ struct MonthWeatherNormal  :  Codable, Identifiable {
         case STATION = "STATION"
         case MLY_PRCP_NORMAL = "MLY-PRCP-NORMAL"
         case MLY_TMAX_NORMAL = "MLY-TMAX-NORMAL"
+        case MLY_SNOW_NORMAL = "MLY-SNOW-NORMAL"
        }
 }
 

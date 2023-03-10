@@ -9,5 +9,5 @@ import Foundation
 
 struct admission_rate : Codable, Identifiable {
     let id = UUID()
-    let overall : Float?
+    let overall : Double?
 }

@@ -9,5 +9,6 @@ import Foundation
 
 struct institution :  Codable, Identifiable {
     let id = UUID()
-    let institution : String
+    let School_Name : String
+    let Domain_Name : String
 }

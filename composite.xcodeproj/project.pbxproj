@@ -12,7 +12,6 @@
 		824A000429B6AB9500E02F75 /* SourceSerifPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 824A000329B6AB9500E02F75 /* SourceSerifPro-Regular.ttf */; };
 		824A000529B6AC1900E02F75 /* SourceSerifPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 824A000329B6AB9500E02F75 /* SourceSerifPro-Regular.ttf */; };
 		824A000729B6AD4D00E02F75 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A000629B6AD4D00E02F75 /* CustomColors.swift */; };
-		824A000929B6AEB200E02F75 /* us_institutions.json in Resources */ = {isa = PBXBuildFile; fileRef = 824A000829B6AEB200E02F75 /* us_institutions.json */; };
 		824A000B29B6AED500E02F75 /* getMatchingSchoolNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A000A29B6AED500E02F75 /* getMatchingSchoolNames.swift */; };
 		824A000D29B6AEFE00E02F75 /* institution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A000C29B6AEFE00E02F75 /* institution.swift */; };
 		824A000F29B6B4C400E02F75 /* CollegeDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A000E29B6B4C400E02F75 /* CollegeDetailedView.swift */; };
@@ -28,8 +27,15 @@
 		824A003F29B8010F00E02F75 /* weather_station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A003E29B8010F00E02F75 /* weather_station.swift */; };
 		824A004129B8015000E02F75 /* getClosestWeatherStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A004029B8015000E02F75 /* getClosestWeatherStation.swift */; };
 		824A004329B802E000E02F75 /* MonthWeatherNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A004229B802E000E02F75 /* MonthWeatherNormal.swift */; };
-		824A004629B805F400E02F75 /* Climate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A004529B805F400E02F75 /* Climate.swift */; };
 		824A004829B813BA00E02F75 /* DateNumberToMonthName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A004729B813BA00E02F75 /* DateNumberToMonthName.swift */; };
+		824A004A29B96D6F00E02F75 /* LikedCollegesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A004929B96D6F00E02F75 /* LikedCollegesView.swift */; };
+		824A004C29BA7F0200E02F75 /* us_institutions.json in Resources */ = {isa = PBXBuildFile; fileRef = 824A004B29BA7F0200E02F75 /* us_institutions.json */; };
+		824A004F29BA86C900E02F75 /* SignupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A004E29BA86C900E02F75 /* SignupResponse.swift */; };
+		824A005129BA874A00E02F75 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A005029BA874A00E02F75 /* ProfileView.swift */; };
+		824A005329BA927600E02F75 /* checkIfValidEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A005229BA927600E02F75 /* checkIfValidEmail.swift */; };
+		824A005729BA976400E02F75 /* ValidateTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A005629BA976400E02F75 /* ValidateTokenResponse.swift */; };
+		824A005929BA9C2300E02F75 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A005829BA9C2300E02F75 /* LoginResponse.swift */; };
+		824A005B29BAB6E200E02F75 /* GetFavoritesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A005A29BAB6E200E02F75 /* GetFavoritesResponse.swift */; };
 		824AFF8D29B68F6E00E02F75 /* compositeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824AFF8C29B68F6E00E02F75 /* compositeApp.swift */; };
 		824AFF8F29B68F6E00E02F75 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824AFF8E29B68F6E00E02F75 /* ContentView.swift */; };
 		824AFF9129B68F6F00E02F75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 824AFF9029B68F6F00E02F75 /* Assets.xcassets */; };
@@ -85,7 +91,6 @@
 /* Begin PBXFileReference section */
 		824A000329B6AB9500E02F75 /* SourceSerifPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSerifPro-Regular.ttf"; path = "/Users/quinnpatwardhan/Desktop/composite/composite/fonts/SourceSerifPro-Regular.ttf"; sourceTree = "<absolute>"; };
 		824A000629B6AD4D00E02F75 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
-		824A000829B6AEB200E02F75 /* us_institutions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = us_institutions.json; sourceTree = "<group>"; };
 		824A000A29B6AED500E02F75 /* getMatchingSchoolNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getMatchingSchoolNames.swift; sourceTree = "<group>"; };
 		824A000C29B6AEFE00E02F75 /* institution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = institution.swift; sourceTree = "<group>"; };
 		824A000E29B6B4C400E02F75 /* CollegeDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeDetailedView.swift; sourceTree = "<group>"; };
@@ -100,8 +105,15 @@
 		824A003E29B8010F00E02F75 /* weather_station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weather_station.swift; sourceTree = "<group>"; };
 		824A004029B8015000E02F75 /* getClosestWeatherStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getClosestWeatherStation.swift; sourceTree = "<group>"; };
 		824A004229B802E000E02F75 /* MonthWeatherNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthWeatherNormal.swift; sourceTree = "<group>"; };
-		824A004529B805F400E02F75 /* Climate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Climate.swift; sourceTree = "<group>"; };
 		824A004729B813BA00E02F75 /* DateNumberToMonthName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateNumberToMonthName.swift; sourceTree = "<group>"; };
+		824A004929B96D6F00E02F75 /* LikedCollegesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedCollegesView.swift; sourceTree = "<group>"; };
+		824A004B29BA7F0200E02F75 /* us_institutions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = us_institutions.json; sourceTree = "<group>"; };
+		824A004E29BA86C900E02F75 /* SignupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupResponse.swift; sourceTree = "<group>"; };
+		824A005029BA874A00E02F75 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		824A005229BA927600E02F75 /* checkIfValidEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkIfValidEmail.swift; sourceTree = "<group>"; };
+		824A005629BA976400E02F75 /* ValidateTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateTokenResponse.swift; sourceTree = "<group>"; };
+		824A005829BA9C2300E02F75 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		824A005A29BAB6E200E02F75 /* GetFavoritesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFavoritesResponse.swift; sourceTree = "<group>"; };
 		824AFF8929B68F6E00E02F75 /* composite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = composite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		824AFF8C29B68F6E00E02F75 /* compositeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = compositeApp.swift; sourceTree = "<group>"; };
 		824AFF8E29B68F6E00E02F75 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -218,12 +230,13 @@
 			path = unsplash;
 			sourceTree = "<group>";
 		};
-		824A004429B805E900E02F75 /* Widgets */ = {
+		824A004D29BA86A100E02F75 /* noaa */ = {
 			isa = PBXGroup;
 			children = (
-				824A004529B805F400E02F75 /* Climate.swift */,
+				824A003E29B8010F00E02F75 /* weather_station.swift */,
+				824A004229B802E000E02F75 /* MonthWeatherNormal.swift */,
 			);
-			path = Widgets;
+			path = noaa;
 			sourceTree = "<group>";
 		};
 		824AFF8029B68F6E00E02F75 = {
@@ -250,11 +263,11 @@
 			isa = PBXGroup;
 			children = (
 				824A003529B7FAAB00E02F75 /* composite.entitlements */,
+				824A004B29BA7F0200E02F75 /* us_institutions.json */,
 				824AFFF929B69E1200E02F75 /* Info.plist */,
 				824A003829B8009D00E02F75 /* weather-stations.json */,
 				824AFF8C29B68F6E00E02F75 /* compositeApp.swift */,
 				824AFF8E29B68F6E00E02F75 /* ContentView.swift */,
-				824A000829B6AEB200E02F75 /* us_institutions.json */,
 				824AFFF829B69DE800E02F75 /* fonts */,
 				824AFFE729B69D3300E02F75 /* views */,
 				824AFFE629B69D2900E02F75 /* utils */,
@@ -293,10 +306,13 @@
 		824AFFE529B69D0C00E02F75 /* structs */ = {
 			isa = PBXGroup;
 			children = (
+				824A005629BA976400E02F75 /* ValidateTokenResponse.swift */,
+				824A005829BA9C2300E02F75 /* LoginResponse.swift */,
+				824A005A29BAB6E200E02F75 /* GetFavoritesResponse.swift */,
+				824A004E29BA86C900E02F75 /* SignupResponse.swift */,
 				824A003B29B800C100E02F75 /* unsplash */,
 				824A001029B6B72B00E02F75 /* ed.gov */,
-				824A003E29B8010F00E02F75 /* weather_station.swift */,
-				824A004229B802E000E02F75 /* MonthWeatherNormal.swift */,
+				824A004D29BA86A100E02F75 /* noaa */,
 			);
 			path = structs;
 			sourceTree = "<group>";
@@ -307,6 +323,7 @@
 				824AFFB629B68F7B00E02F75 /* apiCall.swift */,
 				824A001E29B6CC3600E02F75 /* FullStateNameFromAbbreviation.swift */,
 				824A004029B8015000E02F75 /* getClosestWeatherStation.swift */,
+				824A005229BA927600E02F75 /* checkIfValidEmail.swift */,
 				824A002329B7E4E100E02F75 /* AddCommasToNumber.swift */,
 				824A004729B813BA00E02F75 /* DateNumberToMonthName.swift */,
 				824A000A29B6AED500E02F75 /* getMatchingSchoolNames.swift */,
@@ -318,9 +335,10 @@
 		824AFFE729B69D3300E02F75 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				824A004429B805E900E02F75 /* Widgets */,
 				824AFFEA29B69D5400E02F75 /* SearchCollegesView.swift */,
+				824A004929B96D6F00E02F75 /* LikedCollegesView.swift */,
 				824A000E29B6B4C400E02F75 /* CollegeDetailedView.swift */,
+				824A005029BA874A00E02F75 /* ProfileView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -456,13 +474,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				824A000929B6AEB200E02F75 /* us_institutions.json in Resources */,
 				824A003929B8009D00E02F75 /* weather-stations.json in Resources */,
 				824AFFFB29B6A17900E02F75 /* SourceSerifPro-Black.ttf in Resources */,
 				824AFF9429B68F6F00E02F75 /* Preview Assets.xcassets in Resources */,
 				824AFF9129B68F6F00E02F75 /* Assets.xcassets in Resources */,
 				824A000429B6AB9500E02F75 /* SourceSerifPro-Regular.ttf in Resources */,
 				824A000129B6A35F00E02F75 /* SourceSerifPro-Bold.ttf in Resources */,
+				824A004C29BA7F0200E02F75 /* us_institutions.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +510,7 @@
 			files = (
 				824AFFD329B6953900E02F75 /* completion.swift in Sources */,
 				824A001429B6B7AF00E02F75 /* unsplash_urls.swift in Sources */,
+				824A005929BA9C2300E02F75 /* LoginResponse.swift in Sources */,
 				824AFFCD29B6943600E02F75 /* avg_net_price.swift in Sources */,
 				824AFFCB29B693D700E02F75 /* cost.swift in Sources */,
 				824AFFE129B699C400E02F75 /* APICallResult.swift in Sources */,
@@ -501,8 +520,10 @@
 				824AFFB929B68FD100E02F75 /* CollegeResult.swift in Sources */,
 				824A001F29B6CC3600E02F75 /* FullStateNameFromAbbreviation.swift in Sources */,
 				824AFFD129B6948500E02F75 /* tuition.swift in Sources */,
+				824A005329BA927600E02F75 /* checkIfValidEmail.swift in Sources */,
 				824AFFDD29B6961600E02F75 /* act_scores.swift in Sources */,
 				824AFFB729B68F7B00E02F75 /* apiCall.swift in Sources */,
+				824A005129BA874A00E02F75 /* ProfileView.swift in Sources */,
 				824A000F29B6B4C400E02F75 /* CollegeDetailedView.swift in Sources */,
 				824A001229B6B74F00E02F75 /* unsplash_results.swift in Sources */,
 				824AFFDB29B695E000E02F75 /* midpointACT.swift in Sources */,
@@ -512,21 +533,24 @@
 				824A000D29B6AEFE00E02F75 /* institution.swift in Sources */,
 				824AFFD729B6959900E02F75 /* sat_scores.swift in Sources */,
 				824AFFC129B6919500E02F75 /* location.swift in Sources */,
+				824A005729BA976400E02F75 /* ValidateTokenResponse.swift in Sources */,
 				824AFF8F29B68F6E00E02F75 /* ContentView.swift in Sources */,
-				824A004629B805F400E02F75 /* Climate.swift in Sources */,
 				824AFF8D29B68F6E00E02F75 /* compositeApp.swift in Sources */,
 				824AFFDF29B6964200E02F75 /* admission_rate.swift in Sources */,
 				824A000B29B6AED500E02F75 /* getMatchingSchoolNames.swift in Sources */,
 				824AFFBB29B68FFB00E02F75 /* latest.swift in Sources */,
+				824A005B29BAB6E200E02F75 /* GetFavoritesResponse.swift in Sources */,
 				824AFFEB29B69D5400E02F75 /* SearchCollegesView.swift in Sources */,
 				824AFFC929B6935B00E02F75 /* race_ethnicity.swift in Sources */,
 				824AFFBD29B6901E00E02F75 /* school.swift in Sources */,
 				824AFFC729B6932900E02F75 /* demographics.swift in Sources */,
 				824A004829B813BA00E02F75 /* DateNumberToMonthName.swift in Sources */,
 				824A004129B8015000E02F75 /* getClosestWeatherStation.swift in Sources */,
+				824A004A29B96D6F00E02F75 /* LikedCollegesView.swift in Sources */,
 				824AFFC529B692CC00E02F75 /* enrollment.swift in Sources */,
 				824A003F29B8010F00E02F75 /* weather_station.swift in Sources */,
 				824AFFBF29B690EF00E02F75 /* endowment.swift in Sources */,
+				824A004F29BA86C900E02F75 /* SignupResponse.swift in Sources */,
 				824A001829B6B83300E02F75 /* unsplash_api.swift in Sources */,
 				824A001629B6B7DB00E02F75 /* unsplash_user.swift in Sources */,
 				824A000729B6AD4D00E02F75 /* CustomColors.swift in Sources */,
@@ -617,7 +641,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -671,7 +695,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

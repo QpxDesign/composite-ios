@@ -19,7 +19,6 @@ func getClosestWeatherStation(location : CLLocation) -> String {
                for i in jsonData {
                    var l1 : CLLocation = CLLocation(latitude: i.lat ?? 0, longitude: i.lon ?? 0)
                    if (l1.distance(from: location) < currentClosestDistance) {
-                       ans = i.station_name ?? "";
                        currentClosestDistance = l1.distance(from: location);
                    }
            
