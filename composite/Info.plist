@@ -8,6 +8,8 @@
 		<string>SourceSerifPro-Regular.ttf</string>
 		<string>SourceSerifPro-Regular.tff</string>
 	</array>
+	<key>CBBundleDisplayName</key>
+	<string>Composite: Compare Colleges</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>

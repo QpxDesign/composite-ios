@@ -9,7 +9,7 @@ import Foundation
 import CoreLocation
 
 func getClosestWeatherStation(location : CLLocation) -> String {
-    var ans : String = ""
+    var ans = ""
     var currentClosestDistance : Double = 40000
     if let url = Bundle.main.url(forResource: "weather-stations", withExtension: "json") {
            do {
@@ -17,8 +17,10 @@ func getClosestWeatherStation(location : CLLocation) -> String {
                let decoder = JSONDecoder()
                let jsonData = try decoder.decode([weather_station].self, from: data)
                for i in jsonData {
+               
                    var l1 : CLLocation = CLLocation(latitude: i.lat ?? 0, longitude: i.lon ?? 0)
                    if (l1.distance(from: location) < currentClosestDistance) {
+                       ans = i.station_name ?? ""
                        currentClosestDistance = l1.distance(from: location);
                    }
            

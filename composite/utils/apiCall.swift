@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 class apiCall {
-    func getCollegeData(query : String, completion:@escaping (APICALLResult) -> ()) {
+    func getCollegeData(query : String, domain_name : String, completion:@escaping (CollegeResult) -> ()) {
         var r = query.replacingOccurrences(of: " ", with: "%20")
         guard let url = URL(string: "https://api.data.gov/ed/collegescorecard/v1/schools?&api_key=2isPJFEAwppZPL8yc6fmbepPnDRu56bYPyhaBCr0&school_name=\(r)") else {
             print("nerd")
@@ -34,7 +34,14 @@ class apiCall {
             
             
             DispatchQueue.main.async {
-                completion(results)
+                results.results?.forEach { r in
+                    if (r.school?.school_url == domain_name) {
+                        completion(r)
+                    }
+                        
+                    
+                }
+                
             }
             
         }
@@ -71,7 +78,7 @@ class apiCall {
         
         var a = "https://www.ncei.noaa.gov/access/services/data/v1?dataset=normals-monthly-2006-2020&stations=\(station_Name)&format=json&dataTypes=MLY-TMAX-NORMAL,MLY-TMIN-NORMAL,MLY-TAVG-NORMAL,MLY-PRCP-NORMAL,MLY-SNOW-NORMAL"
         guard let url = URL(string: a) else {
-            print("error creating url")
+            print("a")
             return }
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -89,6 +96,7 @@ class apiCall {
             
             
             DispatchQueue.main.async {
+                print("fired getweather")
                 completion(results)
             }
             
@@ -96,7 +104,7 @@ class apiCall {
         .resume()
     }
     func handleLogin(email : String, password: String, completion:@escaping (LoginResponse) -> ()) {
-        guard let url = URL(string: "http://localhost:3000/login") else {
+        guard let url = URL(string: "https://www.composite-api.quinnpatwardhan.com/login") else {
             print("error creating url")
             return }
         var request = URLRequest(url: url)
@@ -131,7 +139,7 @@ class apiCall {
     }
     func handleSignup(email : String, password: String, name: String, completion:@escaping (SignupResponse) -> ()) {
         
-        guard let url = URL(string: "http://localhost:3000/signup") else {
+        guard let url = URL(string: "https://www.composite-api.quinnpatwardhan.com/signup") else {
             print("error creating url")
             return }
         var request = URLRequest(url: url)
@@ -167,7 +175,7 @@ class apiCall {
     }
     func validateToken(email : String, token: String, completion:@escaping (ValidateTokenResponse) -> ()) {
         
-        guard let url = URL(string: "http://localhost:3000/validate-token") else {
+        guard let url = URL(string: "https://www.composite-api.quinnpatwardhan.com/validate-token") else {
             print("error creating url")
             return }
         var request = URLRequest(url: url)
@@ -195,40 +203,41 @@ class apiCall {
         }
         .resume()
     }
-    func AddCollegeToFavorites(token: String,collegeID : String, completion:@escaping (ValidateTokenResponse) -> ()) {
-        
-        guard let url = URL(string: "http://localhost:3000/add-college-to-favorites") else {
-            print("error creating url")
-            return }
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-
-        // prepare json data
-        let parameters: [String: Any] = ["token": token, "collegeID":collegeID]
-        request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to data object and set it as request body
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if ((error) != nil) {
-                print(error)
-                return}
-            guard  let results =  try? JSONDecoder().decode(ValidateTokenResponse.self, from: data!)
-            else {
-                print( "error JSONifying data")
-                return
-            }
-            DispatchQueue.main.async {
-                completion(results)
-
-            }
+    func AddCollegeToFavorites(token: String,collegeID : String, completion:@escaping (GetFavoritesResponse) -> ()) {
+        if (collegeID != "") {
+            guard let url = URL(string: "https://www.composite-api.quinnpatwardhan.com/add-college-to-favorites") else {
+                print("error creating url")
+                return }
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
             
+            // prepare json data
+            let parameters: [String: Any] = ["token": token, "collegeID":collegeID]
+            request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to data object and set it as request body
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if ((error) != nil) {
+                    print(error)
+                    return}
+                guard  let results =  try? JSONDecoder().decode(GetFavoritesResponse.self, from: data!)
+                else {
+                    print( "error JSONifying data")
+                    return
+                }
+                DispatchQueue.main.async {
+                    completion(results)
+                    
+                }
+                
+            }
+            .resume()
         }
-        .resume()
 
     }
     func RemoveCollegeToFavorites(token: String,collegeID : String, completion:@escaping (GetFavoritesResponse) -> ()) {
         
-        guard let url = URL(string: "http://localhost:3000/remove-college-from-favorites") else {
+        guard let url = URL(string: "https://www.composite-api.quinnpatwardhan.com/remove-college-from-favorites") else {
             print("error creating url")
             return }
         var request = URLRequest(url: url)
@@ -258,7 +267,7 @@ class apiCall {
 
     }
     func GetFavoritesFromEmail(email: String, completion:@escaping (GetFavoritesResponse) -> ()) {
-        guard let url = URL(string: "http://localhost:3000/get-user-favorites") else {
+        guard let url = URL(string: "https://www.composite-api.quinnpatwardhan.com/get-user-favorites") else {
             print("error creating url")
             return }
         var request = URLRequest(url: url)

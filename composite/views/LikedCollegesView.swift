@@ -22,13 +22,19 @@ struct LikedCollegesView: View {
                         var email = defaults.string(forKey: "email")
                         apiCall().GetFavoritesFromEmail(email: email ?? "") { r in
                             ids = r.ids ?? []
-                            print("id")
+                            if (ids.isEmpty) {
+                                Colleges = []
+                            }
                             ids.forEach { s in
                                 apiCall().GetCollegeFromID(school_id:s) { res in
-                                    print("s")
-                                    print(res.results)
-                                    if ((Colleges?.count ?? 0) != ids.count)  {
-                                        self.Colleges?.append(res.results?[0])
+                                 
+                                     if (!(res.results?.isEmpty ?? false)) {
+                                        
+                                        if ((Colleges?.count ?? 0) != ids.count)  {
+                                            if (Colleges?.filter{$0?.fed_sch_cd ?? "blah" == s}.isEmpty ?? false) {
+                                                self.Colleges?.append(res.results?[0])
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -41,35 +47,33 @@ struct LikedCollegesView: View {
                     
                     ForEach(0..<(Colleges?.count ?? 0), id: \.self) { index in
                         VStack {
-                            Text(String(Colleges?[0]?.school?.name ?? "")).font(Font.custom("SourceSerifPro-Regular",size:24)).bold().frame(maxWidth: .infinity, alignment: .leading).padding(.leading,15).foregroundColor(Color.white).padding(.top,15)
-                            Text("📍 \(Colleges?[0]?.school?.city ?? ""), \(Colleges?[0]?.school?.state ?? "" )").font(Font.custom("SourceSerifPro-Regular",size:20)).frame(maxWidth: .infinity, alignment: .leading).padding(.leading,15).foregroundColor(Color.white)
+                            Text(String(Colleges?[index]?.school?.name ?? "")).font(Font.custom("SourceSerifPro-Regular",size:24)).bold().frame(maxWidth: .infinity, alignment: .leading).padding(.horizontal,15).foregroundColor(Color.white).padding(.top,15)
+                            Text("📍 \(Colleges?[index]?.school?.city ?? ""), \(Colleges?[index]?.school?.state ?? "" )").font(Font.custom("SourceSerifPro-Regular",size:20)).frame(maxWidth: .infinity, alignment: .leading).padding(.horizontal,15).foregroundColor(Color.white)
                             Spacer()
                             HStack {
                                 Text("🗑 Remove").font(Font.custom("SourceSerifPro-Regular",size:20)).frame(maxWidth: .infinity, alignment: .leading).padding(.leading,15).foregroundColor(Color.white).padding(.bottom,10).onTapGesture {
                                     let defaults = UserDefaults.standard
                                     var token = defaults.string(forKey: "token") ?? ""
-                                    apiCall().RemoveCollegeToFavorites(token: token, collegeID: Colleges?[0]?.fed_sch_cd ?? "") { r in
+                                    apiCall().RemoveCollegeToFavorites(token: token, collegeID: Colleges?[index]?.fed_sch_cd ?? "") { r in
                                         ids = r.ids ?? []
                                         var tmp : [CollegeResult?]? = []
                                         print("removing college")
-                                        ids.forEach { s in
-                                            apiCall().GetCollegeFromID(school_id:s) { res in
-                                                print("s")
-                                                print(res.results)
-                                                if ((Colleges?.count ?? 0) != ids.count)  {
-                                                    tmp?.append(res.results?[0] )
-                                                }
+                                        Colleges?.forEach{ a in
+                                            if (a?.fed_sch_cd != Colleges?[index]?.fed_sch_cd ?? "null") {
+                                                tmp?.append(a)
                                             }
+                                            
                                         }
                                         Colleges = tmp
-                                        print(Colleges)
+                              
+
                                     }
                                 }
                                 Spacer()
                                 HStack(spacing: 0) {
                                    
                                     
-                                    NavigationLink(destination: CollegeDetailedView(collegeName:Colleges?[0]?.school?.name ?? "")) {
+                                    NavigationLink(destination: CollegeDetailedView(collegeName:Colleges?[0]?.school?.name ?? "",domainName: Colleges?[0]?.school?.school_url ?? "")) {
                                         Image(systemName: "arrow.right")
                                             .font(.system(size: 24, weight: .light))
                                     }

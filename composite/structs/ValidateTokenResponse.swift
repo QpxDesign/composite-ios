@@ -10,5 +10,5 @@ import Foundation
 struct ValidateTokenResponse :  Codable, Identifiable {
     let id = UUID()
     let auth : Bool?
-    
+    let full_name : String?
 }

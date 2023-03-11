@@ -7,9 +7,9 @@
 
 import Foundation
 
-func getMatchingSchoolNames(query: String) -> [institution] {
+func getMatchingSchoolNames(query: String, minAct: Int, minSAT: Int, adminRate: Double,gradRate: Double) -> [institution] {
     var ans : [institution] = []
-    if let url = Bundle.main.url(forResource: "us_institutions", withExtension: "json") {
+    if let url = Bundle.main.url(forResource: "colleges", withExtension: "json") {
            do {
                let data = try Data(contentsOf: url)
                let decoder = JSONDecoder()
@@ -18,12 +18,16 @@ func getMatchingSchoolNames(query: String) -> [institution] {
                for i in jsonData {
                    
                    if (i.School_Name.contains(regex) || getDomainNameFromURL(url: i.Domain_Name).contains(regex) ) {
-                       ans.append(i)
+                       if ((i.adminRate ?? 0) * 100 >= adminRate && (i.gradRate ?? 0) * 100 >= gradRate && i.minACT ?? 0 ?? 0 >= minAct && i.minSAT ?? 0 >= minSAT) {
+                           ans.append(i)
+                       }
                    } else { // Improve performance of search then implement
                        var a = i.School_Name.split(separator: " ")
                        for a1 in a {
                            if (a1.contains(regex) && ans.filter{$0.School_Name == i.School_Name}.isEmpty) {
-                               ans.append(i)
+                               if (i.adminRate ?? 0 >= adminRate && i.gradRate ?? 0 >= gradRate && i.minACT ?? 0 ?? 0 >= minAct && i.minSAT ?? 0 >= minSAT) {
+                                   ans.append(i)
+                               }
                            }
                        }
                      
