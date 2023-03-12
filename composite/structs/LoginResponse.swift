@@ -11,5 +11,5 @@ struct LoginResponse  :  Codable, Identifiable {
     let id = UUID()
     let allowLogin : Bool?
     let token : String?
-    
+    let full_name : String?
 }

@@ -25,6 +25,7 @@ struct LikedCollegesView: View {
                             if (ids.isEmpty) {
                                 Colleges = []
                             }
+                            print(ids)
                             ids.forEach { s in
                                 apiCall().GetCollegeFromID(school_id:s) { res in
                                  
@@ -59,10 +60,11 @@ struct LikedCollegesView: View {
                                         var tmp : [CollegeResult?]? = []
                                         print("removing college")
                                         Colleges?.forEach{ a in
-                                            if (a?.fed_sch_cd != Colleges?[index]?.fed_sch_cd ?? "null") {
-                                                tmp?.append(a)
+                                            if (index <= Colleges?.count ?? 0) {
+                                                if (a?.fed_sch_cd != Colleges?[index]?.fed_sch_cd ?? "null") {
+                                                    tmp?.append(a)
+                                                }
                                             }
-                                            
                                         }
                                         Colleges = tmp
                               
@@ -73,7 +75,7 @@ struct LikedCollegesView: View {
                                 HStack(spacing: 0) {
                                    
                                     
-                                    NavigationLink(destination: CollegeDetailedView(collegeName:Colleges?[0]?.school?.name ?? "",domainName: Colleges?[0]?.school?.school_url ?? "")) {
+                                    NavigationLink(destination: CollegeDetailedView(collegeName:Colleges?[index]?.school?.name ?? "",domainName: Colleges?[index]?.school?.school_url ?? "")) {
                                         Image(systemName: "arrow.right")
                                             .font(.system(size: 24, weight: .light))
                                     }

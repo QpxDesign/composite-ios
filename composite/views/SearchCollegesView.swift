@@ -16,10 +16,11 @@ struct SearchCollegesView: View {
     @State var gradRate : Double = 0
     
     @State var showFiltersScreen : Bool = false
-    @State var westIsOn : Bool = false
-    @State var southIsOn : Bool = false
-    @State var northeastIsOn : Bool = false
-    @State var midwestIsOn : Bool = false
+    let defaults = UserDefaults.standard
+    @State var westIsOn : Bool = true
+    @State var southIsOn : Bool = true
+    @State var northeastIsOn : Bool = true
+    @State var midwestIsOn : Bool = true
     
     var body: some View {
         GeometryReader { geometry in
@@ -36,7 +37,7 @@ struct SearchCollegesView: View {
                                     showFiltersScreen = true
                                 }
                             }.frame(width:.infinity,height: 75,alignment: .center)
-                            List(getMatchingSchoolNames(query: searchQueryText, minAct: Int(floor(actMin)), minSAT: Int(floor(satCompMin)),adminRate:adminRate, gradRate: gradRate)) { institution in
+                            List(getMatchingSchoolNames(query: searchQueryText, minAct: Int(floor(actMin)), minSAT: Int(floor(satCompMin)),adminRate:adminRate, gradRate: gradRate,westEnabled: westIsOn,southEnabled: southIsOn,midwestEnabled: midwestIsOn, northeastEnabled: northeastIsOn)) { institution in
              
                                                 HStack {
                                                     Text(institution.School_Name).font(Font.custom("SourceSerifPro-Regular",size:22))
@@ -61,7 +62,7 @@ struct SearchCollegesView: View {
                     }
                     
                 } else {
-                    ScrollView() {
+                    
                         VStack {
                             HStack{
                                 Image(systemName: "xmark").font(.system(size: 30)).frame(height:.infinity, alignment: .center).foregroundColor(Color.white).position(x:40,y:20).onTapGesture {
@@ -69,7 +70,8 @@ struct SearchCollegesView: View {
                                 }
                                 Spacer()
                             }.frame(width:.infinity,height: 25,alignment: .center)
-                            Text("Filters").padding(.horizontal, 10).font(Font.custom("SourceSerifPro-Black",size:35)).multilineTextAlignment(.center).foregroundColor(Color.white).padding(.bottom,-20)
+                            Text("Filters").padding(.horizontal, 10).font(Font.custom("SourceSerifPro-Black",size:35)).multilineTextAlignment(.center).foregroundColor(Color.white)
+                            ScrollView() {
                             VStack {
                                 
                                 Text("Average ACT (\(Int(floor(actMin)))) ").font(Font.custom("SourceSerifPro-Regular",size:26)).foregroundColor(Color.white).padding(.top,20).padding(.bottom,-5)

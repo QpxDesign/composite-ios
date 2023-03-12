@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 class apiCall {
-    func getCollegeData(query : String, domain_name : String, completion:@escaping (CollegeResult) -> ()) {
+    func getCollegeData(query : String, domain_name : String, completion:@escaping (CollegeResult?) -> ()) {
         var r = query.replacingOccurrences(of: " ", with: "%20")
         guard let url = URL(string: "https://api.data.gov/ed/collegescorecard/v1/schools?&api_key=2isPJFEAwppZPL8yc6fmbepPnDRu56bYPyhaBCr0&school_name=\(r)") else {
             print("nerd")
@@ -32,22 +32,23 @@ class apiCall {
                 return 
                   }
             
-            
+            print(domain_name + " - NERD")
+            print(getDomainNameAndExtensionFromURL(url: results.results?[0].school?.school_url ?? "") + " - NERD_2")
+
+            print(results.results?.filter{getDomainNameAndExtensionFromURL(url: $0.school?.school_url ?? "") ==  domain_name})
             DispatchQueue.main.async {
-                results.results?.forEach { r in
-                    if (r.school?.school_url == domain_name) {
-                        completion(r)
-                    }
-                        
-                    
+             
+                if (!(results.results?.filter{getDomainNameAndExtensionFromURL(url: $0.school?.school_url ?? "") ==  getDomainNameAndExtensionFromURL(url: domain_name)}.isEmpty ?? true)) {
+                    completion(results.results?.filter{getDomainNameAndExtensionFromURL(url: $0.school?.school_url ?? "") == getDomainNameAndExtensionFromURL(url: domain_name)}[0] ?? nil)
                 }
+           
                 
             }
             
         }
         .resume()
     }
-    func getImageFrom(query : String, completion:@escaping (unsplash_api) -> ()) {
+    func getImageFrom(query : String, completion:@escaping (unsplash_results?) -> ()) {
         var q = query.replacingOccurrences(of: " ", with: "%20")
         var a = "https://api.unsplash.com/search/photos?query=\(q)&client_id=pys4HXJeuKmTx8wPnHONDKLkPZTfXwfNJdR_EnGMWJI"
         guard let url = URL(string: a) else {
@@ -68,7 +69,9 @@ class apiCall {
             
             
             DispatchQueue.main.async {
-                completion(results)
+                if (!(results.results?.filter{$0.width ?? 0 > $0.height ?? 0}.isEmpty ?? true)) {
+                    completion(results.results?.filter{$0.width ?? 0 > $0.height ?? 0}[0] ?? nil) // only allow landscape images
+                }
             }
             
         }
@@ -104,7 +107,7 @@ class apiCall {
         .resume()
     }
     func handleLogin(email : String, password: String, completion:@escaping (LoginResponse) -> ()) {
-        guard let url = URL(string: "https://www.composite-api.quinnpatwardhan.com/login") else {
+        guard let url = URL(string: "https://composite-api.quinnpatwardhan.com/login") else {
             print("error creating url")
             return }
         var request = URLRequest(url: url)
@@ -126,11 +129,15 @@ class apiCall {
             }
             DispatchQueue.main.async {
                 completion(results)
-                if (!(results.allowLogin ?? false) ) {
-                    let defaults = UserDefaults.standard
-                    defaults.set(results.token ?? "", forKey: "token")
-                    defaults.set(email ?? "", forKey: "email")
-                    defaults.set(String(NSDate().timeIntervalSince1970), forKey: "last_login_timestap")
+                let defaults = UserDefaults.standard
+                defaults.set(results.full_name ?? "", forKey: "full_name")
+                defaults.set(results.token ?? "", forKey: "token")
+                defaults.set(results.full_name ?? "ne", forKey: "full_name")
+                defaults.set(email ?? "", forKey: "email")
+                defaults.set(String(NSDate().timeIntervalSince1970), forKey: "last_login_timestap")
+                print (results)
+                if ((results.allowLogin ?? true) ) {
+                 
                 }
             }
             
@@ -139,7 +146,7 @@ class apiCall {
     }
     func handleSignup(email : String, password: String, name: String, completion:@escaping (SignupResponse) -> ()) {
         
-        guard let url = URL(string: "https://www.composite-api.quinnpatwardhan.com/signup") else {
+        guard let url = URL(string: "https://composite-api.quinnpatwardhan.com/signup") else {
             print("error creating url")
             return }
         var request = URLRequest(url: url)
@@ -175,7 +182,7 @@ class apiCall {
     }
     func validateToken(email : String, token: String, completion:@escaping (ValidateTokenResponse) -> ()) {
         
-        guard let url = URL(string: "https://www.composite-api.quinnpatwardhan.com/validate-token") else {
+        guard let url = URL(string: "https://composite-api.quinnpatwardhan.com/validate-token") else {
             print("error creating url")
             return }
         var request = URLRequest(url: url)
@@ -205,7 +212,7 @@ class apiCall {
     }
     func AddCollegeToFavorites(token: String,collegeID : String, completion:@escaping (GetFavoritesResponse) -> ()) {
         if (collegeID != "") {
-            guard let url = URL(string: "https://www.composite-api.quinnpatwardhan.com/add-college-to-favorites") else {
+            guard let url = URL(string: "https://composite-api.quinnpatwardhan.com/add-college-to-favorites") else {
                 print("error creating url")
                 return }
             var request = URLRequest(url: url)
@@ -237,7 +244,7 @@ class apiCall {
     }
     func RemoveCollegeToFavorites(token: String,collegeID : String, completion:@escaping (GetFavoritesResponse) -> ()) {
         
-        guard let url = URL(string: "https://www.composite-api.quinnpatwardhan.com/remove-college-from-favorites") else {
+        guard let url = URL(string: "https://composite-api.quinnpatwardhan.com/remove-college-from-favorites") else {
             print("error creating url")
             return }
         var request = URLRequest(url: url)
@@ -267,7 +274,7 @@ class apiCall {
 
     }
     func GetFavoritesFromEmail(email: String, completion:@escaping (GetFavoritesResponse) -> ()) {
-        guard let url = URL(string: "https://www.composite-api.quinnpatwardhan.com/get-user-favorites") else {
+        guard let url = URL(string: "https://composite-api.quinnpatwardhan.com/get-user-favorites") else {
             print("error creating url")
             return }
         var request = URLRequest(url: url)
@@ -278,6 +285,8 @@ class apiCall {
         request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to data object and set it as request body
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
+        let defaults = UserDefaults.standard
+        print(defaults.string(forKey: "email"))
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if ((error) != nil) {
                 print(error)

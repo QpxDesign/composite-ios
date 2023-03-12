@@ -15,4 +15,5 @@ struct institution :  Codable, Identifiable {
     let minSAT : Int?
     let adminRate : Double?
     let gradRate : Double?
+    let state : String?
 }

@@ -69,6 +69,8 @@
 		824AFFFB29B6A17900E02F75 /* SourceSerifPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 824AFFF229B69DD600E02F75 /* SourceSerifPro-Black.ttf */; };
 		824AFFFC29B6A17A00E02F75 /* SourceSerifPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 824AFFF229B69DD600E02F75 /* SourceSerifPro-Black.ttf */; };
 		8268FAB229BC11B100344447 /* colleges.json in Resources */ = {isa = PBXBuildFile; fileRef = 8268FAB129BC11B100344447 /* colleges.json */; };
+		8268FAB429BCB85900344447 /* getRegionFromStateAbbrev.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8268FAB329BCB85900344447 /* getRegionFromStateAbbrev.swift */; };
+		8268FAB629BE1C8A00344447 /* getLoadingDots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8268FAB529BE1C8900344447 /* getLoadingDots.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +162,8 @@
 		824AFFF729B69DD600E02F75 /* SourceSerifPro-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSerifPro-BoldItalic.ttf"; sourceTree = "<group>"; };
 		824AFFF929B69E1200E02F75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8268FAB129BC11B100344447 /* colleges.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = colleges.json; sourceTree = "<group>"; };
+		8268FAB329BCB85900344447 /* getRegionFromStateAbbrev.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getRegionFromStateAbbrev.swift; sourceTree = "<group>"; };
+		8268FAB529BE1C8900344447 /* getLoadingDots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getLoadingDots.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,7 +325,9 @@
 			isa = PBXGroup;
 			children = (
 				824AFFB629B68F7B00E02F75 /* apiCall.swift */,
+				8268FAB529BE1C8900344447 /* getLoadingDots.swift */,
 				824A001E29B6CC3600E02F75 /* FullStateNameFromAbbreviation.swift */,
+				8268FAB329BCB85900344447 /* getRegionFromStateAbbrev.swift */,
 				824A004029B8015000E02F75 /* getClosestWeatherStation.swift */,
 				824A005229BA927600E02F75 /* checkIfValidEmail.swift */,
 				824A002329B7E4E100E02F75 /* AddCommasToNumber.swift */,
@@ -519,6 +525,7 @@
 				824AFFCF29B6946500E02F75 /* roomboard.swift in Sources */,
 				824AFFB929B68FD100E02F75 /* CollegeResult.swift in Sources */,
 				824A001F29B6CC3600E02F75 /* FullStateNameFromAbbreviation.swift in Sources */,
+				8268FAB629BE1C8A00344447 /* getLoadingDots.swift in Sources */,
 				824AFFD129B6948500E02F75 /* tuition.swift in Sources */,
 				824A005329BA927600E02F75 /* checkIfValidEmail.swift in Sources */,
 				824AFFDD29B6961600E02F75 /* act_scores.swift in Sources */,
@@ -544,6 +551,7 @@
 				824AFFC929B6935B00E02F75 /* race_ethnicity.swift in Sources */,
 				824AFFBD29B6901E00E02F75 /* school.swift in Sources */,
 				824AFFC729B6932900E02F75 /* demographics.swift in Sources */,
+				8268FAB429BCB85900344447 /* getRegionFromStateAbbrev.swift in Sources */,
 				824A004829B813BA00E02F75 /* DateNumberToMonthName.swift in Sources */,
 				824A004129B8015000E02F75 /* getClosestWeatherStation.swift in Sources */,
 				824A004A29B96D6F00E02F75 /* LikedCollegesView.swift in Sources */,
@@ -712,13 +720,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = composite/composite.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"composite/Preview Content\"";
 				DEVELOPMENT_TEAM = HJCD65FY5D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = composite/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Composite: Compare Colleges";
+				INFOPLIST_KEY_CFBundleDisplayName = "Composite College Curator";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -745,13 +753,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = composite/composite.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"composite/Preview Content\"";
 				DEVELOPMENT_TEAM = HJCD65FY5D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = composite/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Composite: Compare Colleges";
+				INFOPLIST_KEY_CFBundleDisplayName = "Composite College Curator";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

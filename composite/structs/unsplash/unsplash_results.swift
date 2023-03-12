@@ -12,6 +12,8 @@ struct unsplash_results :  Codable, Identifiable {
     let alt_description : String?
     let urls : unsplash_urls?
     let user : unsplash_user?
+    let width: Int?
+    let height: Int?
     
 }
 

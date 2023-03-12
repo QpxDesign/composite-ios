@@ -58,7 +58,8 @@ struct CollegeDetailedView: View {
     let collegeName : String
     let domainName: String
     @State var imageURL : String = ""
-    @State var imageMetadata : String = "unsplash_user()"
+    @State var imageMetadata : String = ""
+    @State var userURL : String = ""
     @State var results : CollegeResult?
     @State var datapoints : [SCDataPoint] = []
     @State var weatherNormals : [MonthWeatherNormal] = []
@@ -67,47 +68,51 @@ struct CollegeDetailedView: View {
     @State var avgPrecpData : [MonthlyPrecp] = []
     @State var avgSnowData : [MonthlySnow] = []
     @State var CollegeFavorited : Bool = false
+    @State var CollegeUpvoted : Bool = false
+    @State var CollegeDownvoted : Bool = false
     var body: some View {
         GeometryReader { geometry in
             ScrollView {
             VStack {
                 Text(collegeName).padding(.horizontal, 10).font(Font.custom("SourceSerifPro-Black",size:30)).multilineTextAlignment(.center).foregroundColor(Color.white)
-        
+
                     .onAppear() {
+                        print(domainName + " - pp")
+                        print(collegeName + " - pp")
                         let defaults = UserDefaults.standard
                         var email = defaults.string(forKey: "email") ?? ""
-             
                         apiCall().getCollegeData(query:collegeName, domain_name: domainName) { (data) in
-          
+                                print("data")
                                 results = data
+                            
                                 apiCall().GetFavoritesFromEmail(email: email ?? "") { r in
                                     if (r.ids?.filter{$0 == results?.fed_sch_cd ?? "aiodwhods" }.count != 0) {
                                         //print(r == results?.fed_sch_cd)
                                         CollegeFavorited = true
                                     }
                                 }
-                                var totalStudents : Double = Double((data.latest?.student?.enrollment?.grad_12_month ?? 0) + (data.latest?.student?.enrollment?.undergrad_12_month ?? 0))
-                                var percentWhite : Double = data.latest?.student?.demographics?.race_ethnicity?.white ?? 0
-                                var percentBlack : Double = data.latest?.student?.demographics?.race_ethnicity?.black ?? 0
-                                var percentAsian : Double = data.latest?.student?.demographics?.race_ethnicity?.asian ?? 0
-                                var percentAIAN : Double = data.latest?.student?.demographics?.race_ethnicity?.aian ?? 0
-                                var percentUnknown : Double = data.latest?.student?.demographics?.race_ethnicity?.unknown ?? 0
+                            var totalStudents : Double = Double((data?.latest?.student?.enrollment?.grad_12_month ?? 0) + (data?.latest?.student?.enrollment?.undergrad_12_month ?? 0))
+                                var percentWhite : Double = data?.latest?.student?.demographics?.race_ethnicity?.white ?? 0
+                                var percentBlack : Double = data?.latest?.student?.demographics?.race_ethnicity?.black ?? 0
+                            var percentAsian : Double = data?.latest?.student?.demographics?.race_ethnicity?.asian ?? 0
+                                var percentAIAN : Double = data?.latest?.student?.demographics?.race_ethnicity?.aian ?? 0
+                                var percentUnknown : Double = data?.latest?.student?.demographics?.race_ethnicity?.unknown ?? 0
                                 datapoints.append(SCDataPoint("White", value: percentWhite*totalStudents, color: Color.red))
                                 datapoints.append(SCDataPoint("Black", value: percentBlack*totalStudents, color: Color.red))
                                 datapoints.append(SCDataPoint("Asian", value: percentAsian*totalStudents, color: Color.red))
                                 datapoints.append(SCDataPoint("AIAN", value: percentAIAN*totalStudents, color: Color.red))
                                 datapoints.append(SCDataPoint("Unknown", value: percentUnknown*totalStudents, color: Color.red))
 
-                                var q = "\(data.school?.name ?? "")"
+                                var q = "\(data?.school?.name ?? "")"
                                 q = q.lowercased()
                                 apiCall().getImageFrom(query: q ?? "tree")  { (data) in
-                                    imageURL =  data.results?[0].urls?.regular ?? ""
-                                    imageMetadata = data.results?[0].user?.username ?? ""
+                                    
+                                    imageURL =  data?.urls?.regular ?? ""
+                                    print(imageURL)
+                                    imageMetadata = data?.user?.username ?? ""
                                 }
                                 
                             }
-                            
-                        
                     }
                     HStack {
                         Text("\(results?.school?.city ?? ""), \(results?.school?.state ?? "")").font(Font.custom("SourceSerifPro-Regular",size:20)).padding(0).frame(alignment:.center).foregroundColor(Color.white)
@@ -115,10 +120,17 @@ struct CollegeDetailedView: View {
                     if (URL(string: imageURL) != nil) {
                         ZStack {
                             KFImage(URL(string: imageURL )).resizable().aspectRatio(contentMode: .fill).frame(maxWidth: geometry.size.width*0.95,maxHeight: geometry.size.height*0.33,alignment: .center).cornerRadius(25)
-                               
+                            
                                 HStack {
-                                    Text("Photo by \(imageMetadata) / Unplash").padding(3).background(Color.black).foregroundColor(Color.white).font(Font.custom("SourceSerifPro-Regular",size:16)).position(x:geometry.size.width/2, y:10)
-                                }
+                                    Text("Photo by")
+                                    Link(imageMetadata,
+                                         destination: URL(string: "https://unsplash.com/@"
+                                + imageMetadata)!)
+                                    Link("/ Unsplash",
+                                         destination: URL(string: "https://unsplash.com/"
+                                    )!)
+                                }.padding(3).background(Color.black).foregroundColor(Color.white).font(Font.custom("SourceSerifPro-Regular",size:16)).position(x:geometry.size.width/2, y:10)
+
                         }
        
                     } else {
@@ -126,25 +138,7 @@ struct CollegeDetailedView: View {
                     }
                     HStack {
                         ZStack {
-                            Image(systemName: CollegeFavorited ? "star.fill" : "star").font(.system(size: 30)).padding(.horizontal,10).foregroundColor(Color.white).onTapGesture {
-                                Task {
-                                    let defaults = UserDefaults.standard
-                                    var token = defaults.string(forKey: "token") ?? ""
-                                    if (CollegeFavorited) {
-                                        CollegeFavorited = false
-                                        apiCall().RemoveCollegeToFavorites(token: token, collegeID: results?.fed_sch_cd ?? "") { r in
-                                            
-                                        }
-                                    } else {
-                                        
-                                        apiCall().AddCollegeToFavorites(token: token, collegeID: results?.fed_sch_cd ?? "") { r in
-                                            if (r.ids?.filter{$0 == results?.fed_sch_cd ?? "" }.count != 0) {
-                                                CollegeFavorited = true
-                                            }
-                                        }
-                                    }
-                                }
-                            }
+                            Image(systemName: CollegeFavorited ? "star.fill" : "star").font(.system(size: 30)).padding(.horizontal,10).foregroundColor(Color.white)
                         }.onTapGesture {
                             Task {
                                 let defaults = UserDefaults.standard
@@ -155,23 +149,32 @@ struct CollegeDetailedView: View {
                                         
                                     }
                                 } else {
-                                    
+                                    CollegeFavorited = true
                                     apiCall().AddCollegeToFavorites(token: token, collegeID: results?.fed_sch_cd ?? "") { r in
                                         if (r.ids?.filter{$0 == results?.fed_sch_cd ?? "" }.count != 0) {
-                                            CollegeFavorited = true
+                                           
                                         }
                                     }
                                 }
                             }
                         }
                         ZStack {
-                          
                             Image(systemName: "link.circle").font(.system(size: 30)).padding(.horizontal,10).foregroundColor(Color.white)
                             Link("      ",
                                  destination: URL(string: "https://\(domainName)")!).font(.system(size: 30))
                         }
-                        Image(systemName: "arrowtriangle.up.circle").font(.system(size: 30)).padding(.horizontal,10).foregroundColor(Color.white)
-                        Image(systemName: "arrowtriangle.down.circle").font(.system(size: 30)).padding(.horizontal,10).foregroundColor(Color.white)
+                        ZStack {
+                            Image(systemName: CollegeUpvoted ? "arrowtriangle.up.circle.fill" : "arrowtriangle.up.circle").font(.system(size: 30)).padding(.horizontal,10).foregroundColor(Color.white)
+                        }.onTapGesture {
+                            CollegeDownvoted = false
+                            CollegeUpvoted = true
+                        }
+                        ZStack {
+                            Image(systemName:  CollegeDownvoted ? "arrowtriangle.down.circle.fill" : "arrowtriangle.down.circle").font(.system(size: 30)).padding(.horizontal,10).foregroundColor(Color.white)
+                        }.onTapGesture {
+                            CollegeUpvoted = false
+                            CollegeDownvoted = true
+                        }
                         
                     }.frame(maxWidth:.infinity).padding(.vertical,10)
                 
@@ -212,9 +215,9 @@ struct CollegeDetailedView: View {
                         apiCall().getCollegeData(query:collegeName, domain_name: domainName) { (data) in
                             print("step 1")
             
-                                var station_name : String = getClosestWeatherStation(location: CLLocation(latitude: data.location?.lat ?? 0, longitude: data.location?.lon ?? 0))
+                                var station_name : String = getClosestWeatherStation(location: CLLocation(latitude: data?.location?.lat ?? 0, longitude: data?.location?.lon ?? 0))
                                 print(station_name)
-                                print(getClosestWeatherStation(location: CLLocation(latitude: data.location?.lat ?? 0, longitude: data.location?.lon ?? 0)))
+                                print(getClosestWeatherStation(location: CLLocation(latitude: data?.location?.lat ?? 0, longitude: data?.location?.lon ?? 0)))
                                 print("step 2")
                                 apiCall().getWeatherNormalsFromStationName(station_Name: station_name) {
                                     (wd) in

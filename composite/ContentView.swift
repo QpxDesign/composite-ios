@@ -15,7 +15,7 @@ struct ContentView: View {
     }
     @State var userLoggedIn : Bool = false
     var body: some View {
-        NavigationView {
+        NavigationStack {
             TabView {
                 SearchCollegesView()
                     .tabItem {
@@ -27,7 +27,7 @@ struct ContentView: View {
                     }
                 ProfileView(userLoggedIn: $userLoggedIn)
                     .tabItem {
-                        Label("Favorites", systemImage: "person.circle.fill")
+                        Label("Profile", systemImage: "person.circle.fill")
                     }
                 
             }
